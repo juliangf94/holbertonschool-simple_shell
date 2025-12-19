@@ -12,12 +12,17 @@ int main(void)
 	ssize_t read;
 	char *argv[1024];
 	int i;
+	/* Gestion du signal Ctrl+C */
+	handle_sigint(0);
+	signal(SIGINT, handle_sigint);
 
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
+		{
 			printf("#cisboring$ ");
 			fflush(stdout); /* Ajoute ceci pour garantir l'affichage immédiat */
+		}
 
 		read = getline(&line, &len, stdin);
 		if (read == -1) /* Gestion de Ctrl+D */

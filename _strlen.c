@@ -6,7 +6,7 @@
  *
  *Return: la longueur de la chaine
  */
-int _strlen(char *s)
+int _strlen(const char *s)
 {
 	int len = 0;
 

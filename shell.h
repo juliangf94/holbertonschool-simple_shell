@@ -7,6 +7,7 @@
 #include <string.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
+#include <signal.h>/* Pour la gestion de Ctrl+C */
 
 extern char **environ;
 
@@ -14,10 +15,16 @@ extern char **environ;
 char *_which(char *command);
 char *_getenv(const char *name);
 void execute(char **argv);
-int _strcmp(char *s1, char *s2);
-int _strlen(char *s);
+
+int _strlen(const char *s);
+int _strcmp(const char *s1, const char *s2);
+char *_strdup(const char *s);
 
 /* Cœur du Shell */
 void execute_command(char *full_path, char **argv);
 void print_env(void);
+
+/* Gestion des signaux */
+void handle_sigint(int sig);
+
 #endif /* SHELL_H */

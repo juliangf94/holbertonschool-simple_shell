@@ -7,7 +7,7 @@
 * Return: pointeur vers la nouvelle chaine ou NULL si echec
 */
 
-char *_strdup(char *str)
+char *_strdup(const char *str)
 {
 	char *copy;
 	unsigned int i, len = 0;
