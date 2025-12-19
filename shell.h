@@ -14,5 +14,6 @@ extern char **environ;
 char *_which(char *command);
 char *_getenv(const char *name);
 void execute(char **argv);
+void execute_command(char *full_path, char **argv);
 
 #endif /* SHELL_H */
