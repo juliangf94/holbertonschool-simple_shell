@@ -15,5 +15,6 @@ char *_which(char *command);
 char *_getenv(const char *name);
 void execute(char **argv);
 void execute_command(char *full_path, char **argv);
+void print_env(void);
 
 #endif /* SHELL_H */

@@ -42,6 +42,11 @@ int main(void)
 			free(line);
 			exit(0);
 		}
+		if (strcmp(argv[0], "env") == 0)
+		{
+			print_env();
+			continue; /* On revient au prompt sans fork */
+		}
 		/* Recherche de la commande dans le PATH */
 		full_path = _which(argv[0]);
 
