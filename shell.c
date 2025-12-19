@@ -36,6 +36,12 @@ int main(void)
 		if (argv[0] == NULL)
 			continue;
 
+		/*GESTION DU BUILT-IN 'exit' */
+		if (strcmp(argv[0], "exit") == 0)
+		{
+			free(line);
+			exit(0);
+		}
 		/* Recherche de la commande dans le PATH */
 		full_path = _which(argv[0]);
 
