@@ -8,7 +8,7 @@
 char *_getenv(const char *name)
 {
 	int i = 0;
-	size_t len = strlen(name);
+	size_t len = _strlen(name);
 
 	while (environ[i])
 	{
@@ -41,11 +41,11 @@ char *_which(char *command)
 	if (!path || !*path)
 		return (NULL);
 
-	path_copy = strdup(path);
+	path_copy = _strdup(path);
 	token = strtok(path_copy, ":");
 	while (token)
 	{
-		full_path = malloc(strlen(token) + strlen(command) + 2);
+		full_path = malloc(_strlen(token) + _strlen(command) + 2);
 		sprintf(full_path, "%s/%s", token, command);
 		if (stat(full_path, &st) == 0)
 		{

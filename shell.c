@@ -17,6 +17,7 @@ int main(void)
 	{
 		if (isatty(STDIN_FILENO))
 			printf("#cisboring$ ");
+			fflush(stdout); /* Ajoute ceci pour garantir l'affichage immédiat */
 
 		read = getline(&line, &len, stdin);
 		if (read == -1) /* Gestion de Ctrl+D */
@@ -37,12 +38,12 @@ int main(void)
 			continue;
 
 		/*GESTION DU BUILT-IN 'exit' */
-		if (strcmp(argv[0], "exit") == 0)
+		if (_strcmp(argv[0], "exit") == 0)
 		{
 			free(line);
 			exit(0);
 		}
-		if (strcmp(argv[0], "env") == 0)
+		if (_strcmp(argv[0], "env") == 0)
 		{
 			print_env();
 			continue; /* On revient au prompt sans fork */
