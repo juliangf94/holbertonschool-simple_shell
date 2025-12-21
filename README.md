@@ -81,12 +81,15 @@ Interactive mode reads commands from standard input until exit is called or EOF 
 
 ## 📁 Files
 
-- `main.c` - Program entry point and initialization
 - `shell.c` - Core shell loop and command processing logic
-- `execute.c` - Handles command execution via fork and execve
-- `parse.c` - Tokenizes and parses user input into command arguments
-- `builtin.c` - Implements built-in commands (exit, env, cd)
-- `helpers.c` - Utility functions for string manipulation and PATH searching
+- `shell.h` - Header file with function declarations and structures
+- `exec_functions.c` - Handles command execution via fork and execve
+- `builtins.c` - Implements built-in commands (exit, env, cd)
+- `path_functions.c` - PATH resolution and executable search
+- `signals.c` - Signal handling
+- `_strlen.c` - String length utility
+- `_strcmp.c` - String comparison utility
+- `_strdup.c` - String duplication utility
 
 ## 👤 Authors
 
