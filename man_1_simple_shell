@@ -1,0 +1,67 @@
+.TH HSH 1 "DECEMBER 2025" "Simple Shell" "HSH Manual"
+.SH NAME
+hsh \- Simple shell command interpreter
+.SH SYNOPSIS
+.B hsh
+.SH DESCRIPTION
+.B hsh
+is a minimal Unix command-line interpreter that executes commands read from standard input or from a terminal. It is a project developed as part of the curriculum at Holberton School.
+
+The shell works in two modes:
+.IP \(bu 2
+.B Interactive:
+The shell displays a prompt (#cisboring$) and waits for user input.
+.IP \(bu 2
+.B Non-interactive:
+The shell reads commands from a pipe (e.g., echo "ls" | ./hsh).
+
+.SH FEATURES
+.IP \(bu 2
+Finding commands in the 
+.B PATH
+variable.
+.IP \(bu 2
+Executing commands with their arguments.
+.IP \(bu 2
+Handling the 
+.B Ctrl+D 
+(EOF) to exit the shell.
+.IP \(bu 2
+Handling 
+.B Ctrl+C 
+(SIGINT) to prevent exiting.
+
+.SH BUILT-INS
+The following commands are built directly into the shell:
+.TP
+.B exit
+Terminates the shell process.
+.TP
+.B env
+Prints all the environment variables in the current session.
+
+.SH EXIT STATUS
+.B hsh
+returns the status of the last command executed. If a command is not found, it returns 127.
+
+.SH EXAMPLES
+To start the shell:
+.nf
+    $ ./hsh
+.fi
+
+To run a command with arguments:
+.nf
+    #cisboring$ /bin/ls -l /tmp
+.fi
+
+To exit the shell:
+.nf
+    #cisboring$ exit
+.fi
+
+.SH BUGS
+No known bugs. Please report any issues.
+
+.SH AUTHORS
+Gwendal Boisard
