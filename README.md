@@ -90,7 +90,7 @@ Interactive mode reads commands from standard input until exit is called or EOF 
 
 ## Authors
 
-- Your Name
+- Gwendal Boisard
 
 ## License
 
