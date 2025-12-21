@@ -1,12 +1,12 @@
-# holbertonschool-simple_shell
+# 🐚 holbertonschool-simple_shell
 
 A simple UNIX command line interpreter written in C, implementing basic shell functionality.
 
-## Description
+## 📝 Description
 
 This project recreates a minimal shell that reads user commands, parses them, and executes the corresponding programs. It supports basic features like command execution, PATH resolution, and built-in commands. The shell provides an interactive interface similar to `/bin/sh` with essential command-line functionality.
 
-## Features
+## ✨ Features
 
 - **Command parsing and execution** - Tokenizes input and manages command arguments
 - **PATH environment variable handling** - Locates executables in system PATH directories
@@ -15,7 +15,7 @@ This project recreates a minimal shell that reads user commands, parses them, an
 - **Support for absolute and relative paths** - Executes programs with full or partial paths
 - **Interactive and non-interactive modes** - Works as both interactive shell and script processor
 
-## How It Works
+## 🔄 How It Works
 
 ```
 ┌─────────────────┐
@@ -63,7 +63,7 @@ This project recreates a minimal shell that reads user commands, parses them, an
                     └─→ Read Command
 ```
 
-## Installation
+## 📦 Installation
 
 ```bash
 gcc -Wall -Wextra -Werror -pedantic *.c -o hsh
@@ -71,7 +71,7 @@ gcc -Wall -Wextra -Werror -pedantic *.c -o hsh
 
 Compilation flags enforce strict code standards and enable all warnings.
 
-## Usage
+## 🚀 Usage
 
 ```bash
 ./hsh
@@ -79,7 +79,7 @@ Compilation flags enforce strict code standards and enable all warnings.
 
 Interactive mode reads commands from standard input until exit is called or EOF is reached.
 
-## Files
+## 📁 Files
 
 - `main.c` - Program entry point and initialization
 - `shell.c` - Core shell loop and command processing logic
@@ -88,10 +88,11 @@ Interactive mode reads commands from standard input until exit is called or EOF 
 - `builtin.c` - Implements built-in commands (exit, env, cd)
 - `helpers.c` - Utility functions for string manipulation and PATH searching
 
-## Authors
+## 👤 Authors
 
 - Gwendal Boisard
 
-## License
+## 📄 License
 
 Holberton School Project
+
