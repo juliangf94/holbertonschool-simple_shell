@@ -5,6 +5,7 @@
  *
  * Return: Always 0
  */
+
 int main(void)
 {
 	char *line = NULL, *full_path = NULL;
@@ -27,11 +28,13 @@ int main(void)
 		read = getline(&line, &len, stdin);
 		if (read == -1) /* Gestion de Ctrl+D */
 		{
-			if (isatty(STDIN_FILENO)) printf("\n");
-			break;
+			if (isatty(STDIN_FILENO))
+				printf("\n");
+				break;
 		}
 
-		if (line[read - 1] == '\n') line[read - 1] = '\0';
+		if (line[read - 1] == '\n')
+			line[read - 1] = '\0';
 
 		/* Tokenization (découpage) */
 		i = 0;
