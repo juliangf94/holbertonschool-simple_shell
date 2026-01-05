@@ -35,10 +35,8 @@ void handle_line(char *line, char *prog_name)
 	argv[i] = strtok(line, " \t");
 	while (argv[i])
 		argv[++i] = strtok(NULL, " \t");
-
 	if (!argv[0])
 		return; /* ligne vide */
-
 	/* Built-ins */
 	ret = handle_builtins(argv);
 	if (ret == 1) /* env exécuté */
@@ -46,7 +44,10 @@ void handle_line(char *line, char *prog_name)
 	if (ret == 2) /* exit demandé */
 	{
 		free(line);
-		exit(0);
+		if (isatty(STDIN_FILENO))
+			exit(0);  /* Mode interactif */
+		else
+			exit(2);  /* Mode non-interactif (pipe) */
 	}
 	/* Résolution du chemin */
 	full_path = _resolve_path(argv[0]);
