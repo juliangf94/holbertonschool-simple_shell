@@ -60,44 +60,43 @@ char *_which(char *command)
 }
 
 /**
- * _resolve_path - Résout le chemin complet d'une commande
- * @cmd: Nom de la commande
+ * _resolve_path - Résout le chemin d'une commande
+ * @cmd: Commande à résoudre
  * Return: Chemin complet ou NULL si non trouvée ou non exécutable
  */
 char *_resolve_path(char *cmd)
 {
 	char *path;
 
-	if (strchr(cmd, '/')) /* chemin relatif ou absolu */
+	if (!cmd)
+		return (NULL);
+
+	/* Si commande avec / */
+	if (strchr(cmd, '/'))
 	{
 		if (access(cmd, F_OK) == -1) /* fichier n’existe pas */
 		{
 			fprintf(stderr, "./shell: %s: not found\n", cmd);
 			return (NULL);
 		}
-
-		if (access(cmd, X_OK) == -1) /* fichier existe mais non exécutable */
+		if (access(cmd, X_OK) == -1) /* pas exécutable */
 		{
 			fprintf(stderr, "./shell: %s: Permission denied\n", cmd);
 			return (NULL);
 		}
-
-		return (cmd); /* fichier existe et exécutable */
+		return (cmd); /* fichier existant et exécutable */
 	}
 
-	path = _which(cmd); /* recherche dans PATH */
-	if (!path)
-	{
+	/* Sinon recherche dans PATH */
+	path = _which(cmd);
+	if (!path) /* non trouvé dans PATH */
 		fprintf(stderr, "./shell: %s: not found\n", cmd);
-		return (NULL);
-	}
-
-	if (access(path, X_OK) == -1) /* fichier non exécutable */
+	else if (access(path, X_OK) == -1) /* trouvé mais pas exécutable */
 	{
 		fprintf(stderr, "./shell: %s: Permission denied\n", cmd);
 		free(path);
 		return (NULL);
 	}
 
-	return (path);
+	return (path); /* mallocé ou NULL */
 }
