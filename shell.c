@@ -29,8 +29,10 @@ int main(void)
 		if (read == -1) /* Gestion de Ctrl+D */
 		{
 			if (isatty(STDIN_FILENO))
+			{
 				printf("\n");
-				break;
+			}
+			break;
 		}
 
 		if (line[read - 1] == '\n')
