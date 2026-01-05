@@ -30,24 +30,13 @@ void handle_line(char *line)
 	while (argv[i])
 		argv[++i] = strtok(NULL, " \t");
 
-	if (!argv[0])
+	if (handle_builtins(argv))
 		return;
 
-	if (_strcmp(argv[0], "exit") == 0)
-		exit(0);
-
-	if (_strcmp(argv[0], "env") == 0)
-	{
-		print_env();
-		return;
-	}
-
-	full_path = _which(argv[0]);
+	full_path = _resolve_path(argv[0]);
 	if (!full_path)
-	{
-		fprintf(stderr, "./shell: %s: not found\n", argv[0]);
 		return;
-	}
+
 	execute_command(full_path, argv);
 	if (full_path != argv[0])
 		free(full_path);

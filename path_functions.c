@@ -58,3 +58,30 @@ char *_which(char *command)
 	free(path_copy);
 	return (NULL);
 }
+
+/**
+ * _resolve_path - Résout le chemin complet d'une commande
+ * @cmd: Nom de la commande
+ * Return: Chemin complet ou NULL si non trouvée ou non exécutable
+ */
+char *_resolve_path(char *cmd)
+{
+	char *path;
+
+	if (strchr(cmd, '/'))
+		path = cmd;
+	else
+		path = _which(cmd);
+
+	if (!path)
+	{
+		fprintf(stderr, "./shell: %s: not found\n", cmd);
+		return (NULL);
+	}
+	if (access(path, X_OK) == -1)
+	{
+		fprintf(stderr, "./shell: %s: Permission denied\n", cmd);
+		return (NULL);
+	}
+	return (path);
+}
