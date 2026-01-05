@@ -17,15 +17,19 @@ void print_env(void)
 /**
  * handle_builtins - Gère les commandes intégrées
  * @argv: Tableau des arguments de la commande
+ * @line: Ligne de commande complète
  * Return: 1 si une commande intégrée a été exécutée, 0 sinon
  */
-int handle_builtins(char **argv)
+int handle_builtins(char **argv, char *line)
 {
 	if (!argv[0])
 		return (1);
 
 	if (_strcmp(argv[0], "exit") == 0)
+	{
+		free(line);
 		exit(0);
+	}
 
 	if (_strcmp(argv[0], "env") == 0)
 	{

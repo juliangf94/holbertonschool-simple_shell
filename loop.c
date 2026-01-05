@@ -26,11 +26,11 @@ void handle_line(char *line)
 	if (line[_strlen(line) - 1] == '\n')
 		line[_strlen(line) - 1] = '\0';
 
-	argv[i] = strtok(line, " \t");
+	argv[0] = strtok(line, " \t");
 	while (argv[i])
 		argv[++i] = strtok(NULL, " \t");
 
-	if (handle_builtins(argv))
+	if (handle_builtins(argv, line))
 		return;
 
 	full_path = _resolve_path(argv[0]);
