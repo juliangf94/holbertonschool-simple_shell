@@ -46,7 +46,7 @@ void handle_line(char *line, char *prog_name)
 	if (ret == 2) /* exit demandé */
 	{
 		free(line);
-		exit(2);
+		exit(0);
 	}
 	/* Résolution du chemin */
 	full_path = _resolve_path(argv[0]);
