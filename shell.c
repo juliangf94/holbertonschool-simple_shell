@@ -2,14 +2,17 @@
 
 /**
  * main - Simple shell
+ * @ac: Nombre d'arguments
+ * @av: Tableau des arguments
  *
  * Return: Always 0
  */
-
-int main(void)
+int main(int ac, char **av)
 {
 	char *line = NULL;
 	size_t len = 0;
+
+	(void)ac;
 
 	signal(SIGINT, handle_sigint);
 
@@ -22,7 +25,7 @@ int main(void)
 				printf("\n");
 			break;
 		}
-		handle_line(line);
+		handle_line(line, av[0]); /*  on passe le nom du shell */
 	}
 	free(line);
 	return (0);

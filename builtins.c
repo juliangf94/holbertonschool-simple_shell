@@ -17,19 +17,26 @@ void print_env(void)
 /**
  * handle_builtins - Gère les commandes intégrées
  * @argv: Tableau des arguments de la commande
+ * @line: Pointeur vers la ligne à libérer
  * Return:* Retour:
  *   2 si exit,
  *   1 si env,
  *   0 sinon
  */
-int handle_builtins(char **argv)
+int handle_builtins(char **argv, char *line)
 {
 	if (!argv[0])
 		return (0);
 
 	if (_strcmp(argv[0], "exit") == 0)
-		return (2);
+	{
+		int exit_code = 0;
 
+		if (argv[1])
+			exit_code = atoi(argv[1]);
+		free(line);
+		exit(exit_code);
+	}
 	if (_strcmp(argv[0], "env") == 0)
 	{
 		print_env();
