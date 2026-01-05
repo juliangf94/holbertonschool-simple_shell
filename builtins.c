@@ -28,7 +28,7 @@ int handle_builtins(char **argv, char *line)
 	if (_strcmp(argv[0], "exit") == 0)
 	{
 		free(line);
-		exit(0);
+		exit(2);
 	}
 
 	if (_strcmp(argv[0], "env") == 0)
