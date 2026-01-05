@@ -45,9 +45,9 @@ void handle_line(char *line, char *prog_name)
 	{
 		free(line);
 		if (isatty(STDIN_FILENO))
-			exit(0);  /* Mode interactif */
+			exit(2);  /* Mode interactif */
 		else
-			exit(2);  /* Mode non-interactif (pipe) */
+			exit(0);  /* Mode non-interactif (pipe) */
 	}
 	/* Résolution du chemin */
 	full_path = _resolve_path(argv[0]);
