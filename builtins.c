@@ -23,8 +23,10 @@ int handle_builtins(char **argv)
 {
 	if (!argv[0])
 		return (1);
+
 	if (_strcmp(argv[0], "exit") == 0)
 		exit(0);
+
 	if (_strcmp(argv[0], "env") == 0)
 	{
 		print_env();

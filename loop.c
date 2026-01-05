@@ -34,10 +34,21 @@ void handle_line(char *line)
 		return;
 
 	full_path = _resolve_path(argv[0]);
-	if (!full_path)
-		return;
 
+	if (!full_path)
+	{
+		fprintf(stderr, "./shell: %s: not found\n", argv[0]);
+		return;
+	}
+	if (access(full_path, X_OK) == -1)
+	{
+		fprintf(stderr, "./shell: %s: Permission denied\n", argv[0]);
+		if (full_path != argv[0])
+			free(full_path);
+		return;
+	}
 	execute_command(full_path, argv);
+
 	if (full_path != argv[0])
 		free(full_path);
 }

@@ -66,22 +66,11 @@ char *_which(char *command)
  */
 char *_resolve_path(char *cmd)
 {
-	char *path;
-
-	if (strchr(cmd, '/'))
-		path = cmd;
-	else
-		path = _which(cmd);
-
-	if (!path)
+	if (strchr(cmd, '/')) /* chemin relatif ou absolu */
 	{
-		fprintf(stderr, "./shell: %s: not found\n", cmd);
-		return (NULL);
+		if (access(cmd, F_OK) == -1) /* fichier n’existe pas */
+			return (NULL);
+		return (cmd); /* fichier existe, X_OK vérifié dans handle_line */
 	}
-	if (access(path, X_OK) == -1)
-	{
-		fprintf(stderr, "./shell: %s: Permission denied\n", cmd);
-		return (NULL);
-	}
-	return (path);
+	return (_which(cmd)); /* recherche dans PATH, malloc renvoyé si trouvé */
 }
