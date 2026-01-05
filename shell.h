@@ -5,17 +5,16 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#include <sys/wait.h>
 #include <sys/stat.h>
+#include <sys/wait.h>
 #include <signal.h>/* Pour la gestion de Ctrl+C */
 
 extern char **environ;
 
 /* Prototypes */
 char *_which(char *command);
-char *_getenv(const char *name);
-void execute(char **argv);
-
+void print_prompt(void);
+void handle_line(char *line);
 int _strlen(const char *s);
 int _strcmp(const char *s1, const char *s2);
 char *_strdup(const char *s);

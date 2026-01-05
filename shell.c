@@ -1,26 +1,24 @@
 #include "shell.h"
 
 /**
- * main - Simple shell with PATH resolution
+ * main - Simple shell
  *
  * Return: Always 0
  */
 
 int main(void)
 {
-	char *line = NULL, *full_path = NULL;
+	char *line = NULL;
 	size_t len = 0;
-	ssize_t read;
-	char *argv[1024];
-	int i;
-	/* Gestion du signal Ctrl+C */
-	handle_sigint(0);
+
 	signal(SIGINT, handle_sigint);
 
 	while (1)
 	{
-		if (isatty(STDIN_FILENO))
+		print_prompt();
+		if (getline(&line, &len, stdin) == -1)
 		{
+<<<<<<< HEAD
 			printf("#cisboring$ ");
 			fflush(stdout); /* Ajoute ceci pour garantir l'affichage immédiat */
 		}
@@ -73,6 +71,13 @@ int main(void)
 		/* On libère la mémoire de full_path si c'était un malloc de _which */
 		if (full_path != argv[0])
 			free(full_path);
+=======
+			if (isatty(STDIN_FILENO))
+				printf("\n");
+			break;
+		}
+		handle_line(line);
+>>>>>>> gwendal_branch
 	}
 	free(line);
 	return (0);
