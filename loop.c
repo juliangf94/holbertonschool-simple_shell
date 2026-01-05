@@ -14,41 +14,40 @@ void print_prompt(void)
 }
 
 /**
- * handle_line - Traite une ligne de commande
- * @line: La ligne de commande à traiter
- * Return: Rien
+ * handle_line - traite une ligne de commande
+ * @line: ligne saisie
  */
 void handle_line(char *line)
 {
 	char *argv[1024], *full_path;
 	int i = 0;
+	int ret;
 
-	if (line[_strlen(line) - 1] == '\n')
+	/* Supprime le '\n' final si présent */
+	if (_strlen(line) > 0 && line[_strlen(line) - 1] == '\n')
 		line[_strlen(line) - 1] = '\0';
 
-	argv[0] = strtok(line, " \t");
+	/* Découpage en arguments */
+	argv[i] = strtok(line, " \t");
 	while (argv[i])
 		argv[++i] = strtok(NULL, " \t");
 
-	if (handle_builtins(argv, line))
+	/* Built-ins */
+	ret = handle_builtins(argv);
+	if (ret == 1) /* env exécuté */
 		return;
+	if (ret == 2) /* exit demandé */
+	{
+		free(line);
+		exit(0);
+	}
 
+	/* Résolution du chemin et exécution */
 	full_path = _resolve_path(argv[0]);
-
 	if (!full_path)
-	{
-		fprintf(stderr, "./shell: %s: not found\n", argv[0]);
 		return;
-	}
-	if (access(full_path, X_OK) == -1)
-	{
-		fprintf(stderr, "./shell: %s: Permission denied\n", argv[0]);
-		if (full_path != argv[0])
-			free(full_path);
-		return;
-	}
-	execute_command(full_path, argv);
 
+	execute_command(full_path, argv);
 	if (full_path != argv[0])
 		free(full_path);
 }
