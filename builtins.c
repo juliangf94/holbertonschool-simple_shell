@@ -1,9 +1,10 @@
 #include "shell.h"
 
 /**
- * print_env - Affiche toutes les variables d'environnement
- * Return: Rien
- */
+ * print_env - Affiche toutes les variables d'environnement
+ *
+ * Return: void
+ */
 void print_env(void)
 {
 	int i = 0;
@@ -16,37 +17,37 @@ void print_env(void)
 }
 
 /**
- * handle_builtins - Gère les commandes intégrées
- * @argv: Tableau des arguments de la commande
- * Return:* Retour:
- *   2 si exit,
- *   1 si env,
- *   0 sinon
- */
+ * handle_builtins - Gère les commandes intégrées
+ * @argv: Tableau des arguments de la commande
+ * @line: La ligne de commande lue
+ * @last_status: Le dernier statut de sortie
+ *
+ * Return: 0 si env, -1 si non trouvé, ou exit le shell
+ */
 int handle_builtins(char **argv, char *line, int last_status)
 {
-    int exit_code = last_status;
+	int exit_code = last_status;
 
-    if (!argv[0])
-        return (-1);
-    
-    if (_strcmp(argv[0], "exit") == 0)
-    {
-        if (argv[1])
-        {
-            exit_code = _atoi(argv[1]);
-            if (exit_code < 0)
-                exit_code = 2;
-        }
-        free(line);
-        exit(exit_code);
-    }
-    
-    if (_strcmp(argv[0], "env") == 0)
-    {
-        print_env();
-        return (0);
-    }
+	if (!argv[0])
+		return (-1);
 
-    return (-1);
+	if (_strcmp(argv[0], "exit") == 0)
+	{
+		if (argv[1])
+		{
+			exit_code = _atoi(argv[1]);
+			if (exit_code < 0)
+				exit_code = 2;
+		}
+		free(line);
+		exit(exit_code);
+	}
+
+	if (_strcmp(argv[0], "env") == 0)
+	{
+		print_env();
+		return (0);
+	}
+
+	return (-1);
 }
