@@ -25,7 +25,7 @@ int main(int ac, char **av)
 				printf("\n");
 			break;
 		}
-		handle_line(line, "hsh");
+		handle_line(line, av[0]);
 	}
 	free(line);
 	return (0);
