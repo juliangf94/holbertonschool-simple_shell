@@ -18,8 +18,9 @@ void handle_line(char *line, char *prog_name);
 int _strlen(const char *s);
 int _strcmp(const char *s1, const char *s2);
 char *_strdup(const char *s);
-int handle_builtins(char **argv);
+int handle_builtins(char **argv, char *line);
 char *_resolve_path(char *cmd);
+int _atoi(char *s);
 
 /* Cœur du Shell */
 void execute_command(char *full_path, char **argv);

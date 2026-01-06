@@ -25,7 +25,7 @@ int main(int ac, char **av)
 				printf("\n");
 			break;
 		}
-		handle_line(line, av[0]); /*  on passe le nom du shell */
+		handle_line(line, "hsh");
 	}
 	free(line);
 	return (0);
