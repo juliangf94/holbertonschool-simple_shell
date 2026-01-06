@@ -4,7 +4,6 @@
  * main - Simple shell
  * @ac: Nombre d'arguments
  * @av: Tableau des arguments
- *
  * Return: Always 0
  */
 int main(int ac, char **av)

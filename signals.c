@@ -2,7 +2,7 @@
 
 /**
  * handle_sigint - Gère le signal Ctrl+C
- * @sig: Le numéro du signal (non utilisé ici)
+ * @sig: Le numéro du signal
  */
 void handle_sigint(int sig)
 {

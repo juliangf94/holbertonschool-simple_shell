@@ -2,9 +2,8 @@
 
 /**
  *_strcmp - compare deux chaine
- *@s1: premiere chaine
- *@s2: seconde chaine
- *
+ * @s1: premiere chaine
+ * @s2: deuxieme chaine
  *Return: un entier
  */
 int _strcmp(const char *s1, const char *s2)

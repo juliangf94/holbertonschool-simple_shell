@@ -17,6 +17,8 @@ void print_prompt(void)
  * handle_line - traite une ligne de commande
  * @line: ligne à exécuter (doit être mallocée si free line est utilisé)
  * @prog_name: nom du programme shell (pour les messages d'erreur)
+ * @counter: numéro de la commande (pour les messages d'erreur)
+ * @last_status: statut de la dernière commande exécutée
  * Return: Rien
  */
 int handle_line(char *line, char *prog_name, int counter, int last_status)

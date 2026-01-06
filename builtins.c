@@ -2,6 +2,7 @@
 
 /**
  * print_env - Affiche toutes les variables d'environnement
+ * Return: Rien
  */
 void print_env(void)
 {
