@@ -22,30 +22,30 @@ void print_env(void)
  *   1 si env,
  *   0 sinon
  */
-int handle_builtins(char **argv, char *line)
+int handle_builtins(char **argv, char *line, int last_status)
 {
-	int exit_code = 0;
+    int exit_code = last_status;
 
-	if (!argv[0])
-		return (0);
-	
-	if (_strcmp(argv[0], "exit") == 0)
-	{
-		if (argv[1])
-		{
-			exit_code = _atoi(argv[1]);
-			if (exit_code < 0)
-				exit_code = 2;
-		}
-		free(line);
-		exit(exit_code);
-	}
-	
-	if (_strcmp(argv[0], "env") == 0)
-	{
-		print_env();
-		return (1);
-	}
+    if (!argv[0])
+        return (-1);
+    
+    if (_strcmp(argv[0], "exit") == 0)
+    {
+        if (argv[1])
+        {
+            exit_code = _atoi(argv[1]);
+            if (exit_code < 0)
+                exit_code = 2;
+        }
+        free(line);
+        exit(exit_code);
+    }
+    
+    if (_strcmp(argv[0], "env") == 0)
+    {
+        print_env();
+        return (0);
+    }
 
-	return (0);
+    return (-1);
 }

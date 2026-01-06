@@ -14,16 +14,16 @@ extern char **environ;
 /* Prototypes */
 char *_which(char *command);
 void print_prompt(void);
-void handle_line(char *line, char *prog_name);
+int handle_line(char *line, char *prog_name, int counter, int last_status);
 int _strlen(const char *s);
 int _strcmp(const char *s1, const char *s2);
 char *_strdup(const char *s);
-int handle_builtins(char **argv, char *line);
+int handle_builtins(char **argv, char *line, int last_status);
 char *_resolve_path(char *cmd);
 int _atoi(char *s);
 
 /* Cœur du Shell */
-void execute_command(char *full_path, char **argv);
+int execute_command(char *full_path, char **argv);
 void print_env(void);
 
 /* Gestion des signaux */
