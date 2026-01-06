@@ -22,7 +22,7 @@ int main(void)
 				printf("\n");
 			break;
 		}
-		handle_line(line);
+		handle_line(line, "hsh");
 	}
 	free(line);
 	return (0);
