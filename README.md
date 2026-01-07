@@ -67,7 +67,7 @@ graph TD
     class Read,Exit data;
 ```
 
-## ✨ Features
+## Features
 
 - **Interactive & Non-Interactive Modes**: Operates via terminal or piped input (e.g., `echo "ls" | ./hsh`).
 - **Command Execution**: Runs executable programs from the `PATH` or using absolute/relative paths.
@@ -77,7 +77,7 @@ graph TD
 - **Error Handling**: Displays error messages similar to `/bin/sh` with command counters.
 - **Robust Memory Management**: Zero memory leaks verified via Valgrind.
 
-## 📁 Files
+## Files
 
 - `shell.c` - Core shell loop and command processing logic
 - `shell.h` - Header file with function declarations and structures
@@ -89,7 +89,7 @@ graph TD
 - `_strcmp.c` - String comparison utility
 - `_strdup.c` - String duplication utility
 
-## 🛠️ Requirements & Compilation
+## Requirements & Compilation
 
 - **OS**: Ubuntu 20.04 LTS.
 - **Compiler**: `gcc`.
@@ -114,12 +114,12 @@ Non-Interactive Mode:
 $ echo "ls" | ./hsh
 ```
 
-## 👤 Authors
+## Authors
 
 - Gwendal Boisard
 - Julian Gonzalez
 - Djibril Tamsir Niang
 
-## 📄 License
+## License
 
 Holberton School Project
