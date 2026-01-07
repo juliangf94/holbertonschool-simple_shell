@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # holbertonschool-simple_shell
 
 A simple UNIX command line interpreter written in C. This project is a functional recreation of the `sh` shell, designed to interface between the user and the Linux kernel.
@@ -68,7 +67,7 @@ graph TD
     class Read,Exit data;
 ```
 
-## ✨ Features
+## Features
 
 - **Interactive & Non-Interactive Modes**: Operates via terminal or piped input (e.g., `echo "ls" | ./hsh`).
 - **Command Execution**: Runs executable programs from the `PATH` or using absolute/relative paths.
@@ -78,7 +77,7 @@ graph TD
 - **Error Handling**: Displays error messages similar to `/bin/sh` with command counters.
 - **Robust Memory Management**: Zero memory leaks verified via Valgrind.
 
-## 📁 Files
+## Files
 
 - `shell.c` - Core shell loop and command processing logic
 - `shell.h` - Header file with function declarations and structures
@@ -103,7 +102,7 @@ To compile the shell, use the following command:
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 ```
 
-## 🚀 Usage
+## Usage
 Interactive Mode:
 ```bash
 ./hsh
@@ -115,12 +114,12 @@ Non-Interactive Mode:
 $ echo "ls" | ./hsh
 ```
 
-## 👤 Authors
+## Authors
 
 - Gwendal Boisard
 - Julian Gonzalez
 - Djibril Tamsir Niang
 
-## 📄 License
+## License
 
 Holberton School Project
