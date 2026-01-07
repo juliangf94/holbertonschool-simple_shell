@@ -1,0 +1,38 @@
+.TH SIMPLE_SHELL 1 "JANUARY 2024" "Gwendal" "Shell Program Manual"
+.SH NAME
+simple_shell \- A custom UNIX command line interpreter
+.SH SYNOPSIS
+.B ./hsh
+.SH DESCRIPTION
+.B simple_shell
+is a custom sh-compatible command language interpreter that executes commands read from the standard input or from a file.
+.PP
+The shell can be used in both interactive and non-interactive modes.
+.SH FEATURES
+.SS Interactive Mode
+In interactive mode, the shell displays a prompt
+.I #cisboring$
+and waits for the user to type a command. The command is then executed, and the prompt is displayed again.
+.SS Non-interactive Mode
+In non-interactive mode, the shell reads commands from a pipe or a file redirection and executes them before exiting.
+.SH BUILT-INS
+The following built-in commands are supported:
+.TP
+.B exit [status]
+Exits the shell with the given status. If no status is provided, it exits with the status of the last command executed.
+.TP
+.B env
+Prints the current environment variables to the standard output.
+.SH ERRORS
+When a command is not found, the shell prints an error message in the format:
+.I executable_name: line_number: command_name: not found
+.SH SIGNALS
+The shell ignores the
+.B Ctrl+C
+(SIGINT) signal, ensuring the shell does not exit when the user attempts to terminate a foreground process.
+.SH AUTHOR
+Written by Gwendal.
+.SH SEE ALSO
+.BR sh (1),
+.BR bash (1),
+.BR execve (2).
