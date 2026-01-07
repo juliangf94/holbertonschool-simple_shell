@@ -89,7 +89,7 @@ graph TD
 - `_strcmp.c` - String comparison utility
 - `_strdup.c` - String duplication utility
 
-## 🛠️ Requirements & Compilation
+## Requirements & Compilation
 
 - **OS**: Ubuntu 20.04 LTS.
 - **Compiler**: `gcc`.
