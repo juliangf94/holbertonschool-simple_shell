@@ -118,7 +118,6 @@ $ echo "ls" | ./hsh
 
 - Gwendal Boisard
 - Julian Gonzalez
-- Djibril Tamsir Niang
 
 ## License
 
