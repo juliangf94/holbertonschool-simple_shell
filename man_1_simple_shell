@@ -1,4 +1,4 @@
-.TH SIMPLE_SHELL 1 "JANUARY 2024" "Gwendal" "Shell Program Manual"
+.TH SIMPLE_SHELL 1 "JANUARY 2024" "Holberton School" "Shell Program Manual"
 .SH NAME
 simple_shell \- A custom UNIX command line interpreter
 .SH SYNOPSIS
@@ -22,7 +22,7 @@ The following built-in commands are supported:
 Exits the shell with the given status. If no status is provided, it exits with the status of the last command executed.
 .TP
 .B env
-Prints the current environment variables to the standard output.
+Prints all current environment variables to the standard output.
 .SH ERRORS
 When a command is not found, the shell prints an error message in the format:
 .I executable_name: line_number: command_name: not found
@@ -31,8 +31,10 @@ The shell ignores the
 .B Ctrl+C
 (SIGINT) signal, ensuring the shell does not exit when the user attempts to terminate a foreground process.
 .SH AUTHOR
-Written by Gwendal.
+Written by Gwendal Boisard, Julian Gonzalez
 .SH SEE ALSO
 .BR sh (1),
 .BR bash (1),
-.BR execve (2).
+.BR execve (2),
+.BR fork (2),
+.BR wait (2).
